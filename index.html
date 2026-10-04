@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An agent is a data-export button with a chat interface</title>
+<style>
+body{font-family:Georgia,serif;max-width:680px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#1a1a1a;background:#faf9f6}
+h1{font-size:1.6rem;line-height:1.3}
+p{margin:0 0 1.1em}
+a{color:#0a58ca}
+footer{margin-top:2rem;font-size:.85rem;color:#666}
+</style>
+</head>
+<body>
+<article>
+<h1>An agent is a data-export button with a chat interface</h1>
+<p>A support agent reads a ticket, calls a summarizer, enriches the CRM record, drafts a reply. Every one of those calls carries the full ticket: customer name, email address, the quoted thread below the signature, order numbers. The agent does not decide what to send. It forwards the context it was handed.</p>
+<p>Run the ledger on a small pipeline. Sixty tickets a day, average forwarded context 1,100 tokens per call. The summarizer actually needs 380 of them: the ticket body and two metadata fields. The other 720 tokens per call, signatures and quoted history and legal footers, travel to a third-party vendor that never reads them. Over 252 working days that is 10.9 million tokens of customer conversation shipped outside the company in a year, and about two thirds of it bought nothing.</p>
+<p>Price it and the number is embarrassing for a different reason. At a shelf rate of $3 per million input tokens, the excess traffic costs $32.66 a year. Nobody rewrites a pipeline to save thirty dollars. The reason to fix this sits in the vendor's log: with a 30-day retention window, roughly 1.3 million customer tokens rest on their side at any moment. The cost line is small. The exposure is not.</p>
+<p>The audit question is one line: for each external call, what fraction of the forwarded tokens does the destination actually read? Here it is 380 of 1,100, about 35 percent. A pipeline scoring under half on every external call does not have an AI problem. It has a scoping problem wearing an AI badge.</p>
+<p>The fix list is boring on purpose: field-level allowlists per tool, strip quoted thread history, drop signature blocks, classify which data classes each vendor may receive, re-run the count monthly. An hour of scoping work moves the forwarded fraction from 35 percent to near 100, and the tokens that stop moving are the ones nobody ever needed to see.</p>
+<p><a href="https://pastagi.com/">PastAGI</a> keeps a running piece on why AI agents leak sensitive data and how the failure modes compound. The <a href="https://pastagi.com/">agent data-leak guides</a> on pastagi.com walk the allowlist pattern step by step, and the serving-cost audits price what those stripped tokens were quietly billing all along.</p>
+</article>
+<footer>leak-surface-math</footer>
+</body>
+</html>
